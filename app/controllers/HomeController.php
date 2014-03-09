@@ -24,59 +24,81 @@ class HomeController extends BaseController {
 	{
 
 		return View::make('user.signin')->with('title','V2EX > 登入');
+
 	}
 
 	public function showRegister(){
+
 		return View::make('user.signup')->with('title','V2EX > 注册');
+
 	}
-	public function doLogin()
+
+	//注册
+	public function doRegister()
 	{
-		// validate the info, create rules for the inputs
+		
 		$rules = array(
-			'email'    => 'required|email', // make sure the email is an actual email
-			'password' => 'required|alphaNum|min:3' // password can only be alphanumeric and has to be greater than 3 characters
+			'username' => 'required|alpha_num',
+			'email'    => 'required|email', 
+			'password' => 'required|alpha_num|min:3' 
 		);
 
-		// run the validation rules on the inputs from the form
 		$validator = Validator::make(Input::all(), $rules);
 
-		// if the validator fails, redirect back to the form
 		if ($validator->fails()) {
-			return Redirect::to('login')
-				->withErrors($validator) // send back all errors to the login form
-				->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
+			return Redirect::to('signup')
+				->withErrors($validator) ;
 		} else {
 
-			// create our user data for the authentication
 			$userdata = array(
+				'username' 	=> Input::get('username'),
 				'email' 	=> Input::get('email'),
-				'password' 	=> Input::get('password')
+				'password' 	=> Hash::make(Input::get('password'))
 			);
 
-			// attempt to do the login
-			if (Auth::attempt($userdata)) {
 
-				// validation successful!
-				// redirect them to the secure section or whatever
-				// return Redirect::to('secure');
-				// for now we'll just echo success (even though echoing in a controller is bad)
-				echo 'SUCCESS!';
+			$user = DB::table('users')
+						->where('username',$userdata['username'])
+						->orWhere('email',$userdata['email'])
+						->count();
+			if($user > 0){
 
-			} else {	 	
-
-				// validation not successful, send back to form	
-				return Redirect::to('login');
+				return Redirect::to("signup")
+						->with('register_error',"用户名或者邮箱已经存在");
 
 			}
+
+			DB::table('users')->insertGetId(
+			    $userdata
+			);
+
+			return Redirect::to("member/{$userdata['username']}");
+
+			
 
 		}
 	}
 
+	public function doLogin()
+	{
+		$user = array(
+            'username' => Input::get('username'),
+            'password' => Input::get('password')
+        );
+
+        if (Auth::attempt($user)) {
+            return Redirect::to('index');
+        }
+
+        return Redirect::to('signin')
+        		->with('login_error','用户名或者密码错误');
+	}
 
 	public function doLogout()
 	{
-		Auth::logout(); // log the user out of our application
-		return Redirect::to('login'); // redirect the user to the login screen
+		Auth::logout(); 
+		return Redirect::to('signin')
+				->with('signout_',"你已经完全登出，没有任何个人信息留在这台电脑上。") ;
 	}
 
 }

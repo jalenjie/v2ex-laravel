@@ -9,24 +9,38 @@
             <li><a href="#">V2EX</a></li>
             <li class="active">注册</li>
         </ol>
-        <form class="form-signin" role="form">
+        @if ($errors->first('email') or $errors->first('username') or $errors->first('password'))
+            <div class="alert alert-danger">
+                {{  $errors->first('email');}} <br/>
+                {{  $errors->first('username');}} <br/>
+            </div>
+        @endif
+
+        @if(Session::has('register_error'))
+            <div class="alert alert-danger">
+                {{Session::get('register_error')}}
+            </div>
+        @endif
+        {{ Form::open(array('url'=>'signup','class'=>'form-signin'))}}
             <div class="input-group">
               <span class="input-group-addon">用户名</span>
-              <input type="text" class="form-control" placeholder="Username">
+              {{ Form::text('username','',array('class'=>'form-control','placeholder'=>'Username'));}}
             </div>
             <div class="fade-color">
             请使用半角的 a-z 或数字 0-9
             </div>
+            <div class="sep5">
+            </div>
             <div class="input-group">
               <span class="input-group-addon">密&nbsp;&nbsp;&nbsp;码</span>
-              <input type="password" class="form-control" >
+              {{ Form::password('password',array('class'=>'form-control'));}}
             </div>
             <div class="input-group">
               <span class="input-group-addon">电子邮件</span>
-              <input type="text" class="form-control"  >
+              {{ Form::text('email','',array('class'=>'form-control'));}}
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
-        </form>
+        {{Form::close()}}
     </div>
     <div class="col-md-1">
     </div>

@@ -28,8 +28,20 @@
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">首页</a></li>
-                        <li><a href="#">注册</a></li>
-                        <li><a href="#">登入</a></li>
+                        @if(Auth::check())
+                            <li>{{ HTML::link("/member/".Auth::user()->username,Auth::user()->username) }}</li>
+                            <li><a href="#">工作空间</a></li>
+                            <li><a href="#">记事本</a></li>
+                            <li><a href="#">时间轴</a></li>
+                            <li><a href="#">活动</a></li>
+                            <li><a href="#">附近</a></li>
+                            <li><a href="#">设置</a></li>
+                            <li>{{ HTML::link("/signout","登出")}}</li>
+                        @else
+                            <li>{{ HTML::link("/signup","注册")}}</li>
+                            <li>{{ HTML::link("/signin","登入")}}</li>
+                        @endif
+                        
                     </ul>
                 </div>
             </div>

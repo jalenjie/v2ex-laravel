@@ -9,17 +9,23 @@
             <li><a href="#">V2EX</a></li>
             <li class="active">登入</li>
         </ol>
-        <form class="form-signin" role="form">
+        @if (Session::has('login_error'))
+            <div class="alert alert-danger">{{ Session::get('login_error') }}</div>
+        @endif
+        @if (Session::has('signout_'))
+            <div class="alert alert-danger">{{ Session::get('signout_') }}</div>
+        @endif
+        {{ Form::open(array('url'=>'signin','class'=>'form-signin'))}}
             <div class="input-group">
               <span class="input-group-addon">用户名</span>
-              <input type="text" class="form-control" placeholder="Username">
+              {{ Form::text('username','',array('class'=>'form-control','placeholder'=>'Username'));}}
             </div>
             <div class="input-group">
               <span class="input-group-addon">密&nbsp;&nbsp;&nbsp;码</span>
-              <input type="password" class="form-control" >
+              {{ Form::password('password',array('class'=>'form-control'));}}
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
-        </form>
+        {{Form::close()}}
     </div>
     <div class="col-md-1">
     </div>
@@ -31,10 +37,10 @@
         </div>
         <div class="inner">
             <div class="sep5"></div>
-            <div align="center"><a href="/signup" class="btn btn-primary">现在注册</a>
+            <div align="center">{{HTML::link("/signup","现在注册","class='btn btn-primary'")}}
             <div class="span5"></div>
             <div class="sep10"></div>
-            已注册用户请 &nbsp;<a href="/signin">登入</a></div>
+            已注册用户请 &nbsp;{{HTML::link("/signin","登入")}}</div>
         </div>
     </div>
 </div>
