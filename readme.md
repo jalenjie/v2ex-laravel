@@ -17,6 +17,7 @@ update 2014/3/9 18:40<br/>
 
 
 ###重写登陆注册route ;
-[http://www.golaravel.com/docs/4.1/controllers/] (路由控制器用法) <br/>
+[http://www.golaravel.com/docs/4.1/controllers/] 路由控制器用法 <br/>
 之前要写Route::get  Route::post 写一大串 <br/>
 现在只要用Route::controller就搞定了 <br/>
+update 2014/3/11/ 0:05
