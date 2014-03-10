@@ -22,7 +22,6 @@ class HomeController extends BaseController {
 
 	public function showLogin()
 	{
-
 		return View::make('user.signin')->with('title','V2EX > 登入');
 
 	}

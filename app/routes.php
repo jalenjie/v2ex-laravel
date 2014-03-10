@@ -12,12 +12,14 @@
 */
 
 //显示登录界面
-Route::get('signin',array('uses' => 'HomeController@showLogin'));
+/*Route::get('signin',array('uses' => 'HomeController@showLogin'));*/
 //显示注册界面
-Route::get('signup',array('uses' => 'HomeController@showRegister'));
+/*Route::get('signup',array('uses' => 'HomeController@showRegister'));
 //提交登录信息
 Route::post('signin',array('uses' => 'HomeController@doLogin'));
 //提交注册信息
 Route::post('signup',array('uses' => 'HomeController@doRegister'));
 //登出
-Route::get('signout', array('uses' => 'HomeController@doLogout'));
+Route::get('signout', array('uses' => 'HomeController@doLogout'));*/
+
+Route::controller('auth','AuthController');

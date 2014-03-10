@@ -5,7 +5,7 @@
 </head>
 <body>
 
-	{{ Form::open(array('url' => 'login')) }}
+	{{ Form::open()) }}
 		<h1>Login</h1>
 
 		<!-- if there are login errors, show them here -->

@@ -21,7 +21,7 @@
                 {{Session::get('register_error')}}
             </div>
         @endif
-        {{ Form::open(array('url'=>'signup','class'=>'form-signin'))}}
+        {{ Form::open(array('class'=>'form-signin'))}}
             <div class="input-group">
               <span class="input-group-addon">用户名</span>
               {{ Form::text('username','',array('class'=>'form-control','placeholder'=>'Username'));}}
@@ -52,10 +52,10 @@
         </div>
         <div class="inner">
             <div class="sep5"></div>
-            <div align="center"><a href="/signup" class="btn btn-primary">现在注册</a>
+            <div align="center"><a href="/auth/reg" class="btn btn-primary">现在注册</a>
             <div class="span5"></div>
             <div class="sep10"></div>
-            已注册用户请 &nbsp;<a href="/signin">登入</a></div>
+            已注册用户请 &nbsp;<a href="/auth/login">登入</a></div>
         </div>
     </div>
 </div>

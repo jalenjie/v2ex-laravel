@@ -36,10 +36,10 @@
                             <li><a href="#">活动</a></li>
                             <li><a href="#">附近</a></li>
                             <li><a href="#">设置</a></li>
-                            <li>{{ HTML::link("/signout","登出")}}</li>
+                            <li>{{ HTML::link("/auth/logout","登出")}}</li>
                         @else
-                            <li>{{ HTML::link("/signup","注册")}}</li>
-                            <li>{{ HTML::link("/signin","登入")}}</li>
+                            <li>{{ HTML::link("/auth/reg","注册")}}</li>
+                            <li>{{ HTML::link("/auth/login","登入")}}</li>
                         @endif
                         
                     </ul>

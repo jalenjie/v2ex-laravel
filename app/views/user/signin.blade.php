@@ -15,7 +15,7 @@
         @if (Session::has('signout_'))
             <div class="alert alert-danger">{{ Session::get('signout_') }}</div>
         @endif
-        {{ Form::open(array('url'=>'signin','class'=>'form-signin'))}}
+        {{ Form::open(array('class'=>'form-signin'))}}
             <div class="input-group">
               <span class="input-group-addon">用户名</span>
               {{ Form::text('username','',array('class'=>'form-control','placeholder'=>'Username'));}}
@@ -37,10 +37,10 @@
         </div>
         <div class="inner">
             <div class="sep5"></div>
-            <div align="center">{{HTML::link("/signup","现在注册","class='btn btn-primary'")}}
+            <div align="center">{{HTML::link("/auth/reg","现在注册","class='btn btn-primary'")}}
             <div class="span5"></div>
             <div class="sep10"></div>
-            已注册用户请 &nbsp;{{HTML::link("/signin","登入")}}</div>
+            已注册用户请 &nbsp;{{HTML::link("/auth/login","登入")}}</div>
         </div>
     </div>
 </div>
