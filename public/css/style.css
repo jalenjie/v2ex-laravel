@@ -1,4 +1,8 @@
 body{padding-top:60px;}
+a:link, a:visited, a:active {
+	color: #778087;
+	text-decoration: none;
+}
 #top{
 	background-image: url("../img/top_light.png");
 
@@ -11,11 +15,23 @@ max-width: 360px;
 padding: 15px;
 margin: 0 auto;
 }
-.box{background-color: #FFF}
+.box{background-color: #FFF;
+padding: 10px;
+font-size: 12px;
+line-height: 120%;
+text-align: left;
+border-bottom: 1px solid #e2e2e2;
+}
 .header-crumb{border-bottom: 1px solid #e2e2e2;}
 .input-group{margin-bottom: 10px;}
 .fade-color{color: #ccc;}
-.cell{border-bottom: 1px solid #e2e2e2;}
+.cell {
+padding: 10px;
+font-size: 12px;
+line-height: 120%;
+text-align: left;
+border-bottom: 1px solid #e2e2e2;
+}
 .inner {
 padding: 10px;
 }

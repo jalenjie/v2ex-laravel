@@ -48,7 +48,65 @@
         </div>
         <div id="Wrapper">
             <div class="container" >
-                @yield('content')
+                
+
+                <div class="row">
+                    <div class="sep20"></div>
+                    <div class="col-md-8 box">
+                        @yield('content')
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-3 box">
+                        @if ( !Auth::check() )
+                            <div class="box">
+                                <div class="cell">
+                                    <strong>V2EX = way to explore</strong>
+                                    <div></div>
+                                    <span class="fade-color">V2EX 是一个关于分享和探索的地方</span>
+                                </div>
+                                <div class="inner">
+                                    <div class="sep5"></div>
+                                    <div align="center"><a href="/auth/reg" class="btn btn-primary">现在注册</a>
+                                    <div class="span5"></div>
+                                    <div class="sep10"></div>
+                                    已注册用户请 &nbsp;<a href="/auth/login">登入</a></div>
+                                </div>
+                            </div>
+                        @else
+                            <div class="box">
+                                <div class="cell">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tbody><tr>
+                                            <td width="48" valign="top"><a href="/member/jalen"><img src="//cdn.v2ex.com/avatar/18fa/fc45/44048_large.png?m=1378694449" class="avatar" border="0" align="default" style="max-width: 48px; max-height: 48px;"><iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe></a></td>
+                                            <td width="10" valign="top"></td>
+                                            <td width="auto" align="left"><span class="bigger"><a href="/member/jalen">jalen</a></span>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="sep10"></div>
+                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tbody><tr>
+                                            <td width="33%" align="center"><a href="/my/nodes" class="dark" style="display: block;"><span class="bigger">1</span><div class="sep3"></div><span class="fade-color">节点收藏</span><iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe></a></td>
+                                            <td width="34%" style="border-left: 1px solid rgba(100, 100, 100, 0.4); border-right: 1px solid rgba(100, 100, 100, 0.4);" align="center"><a href="/my/topics" class="dark" style="display: block;"><span class="bigger">13</span><div class="sep3"></div><span class="fade-color">主题收藏</span></a></td>
+                                            <td width="33%" align="center"><a href="/my/following" class="dark" style="display: block;"><span class="bigger">2</span><div class="sep3"></div><span class="fade-color">特别关注</span></a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="inner">
+                                    <a href="/notifications" class="fade-color">0 条未读提醒</a>
+                                    <div class="fr" id="money">
+                                        <a href="/balance" class="balance_area" style="">79 
+                                            <img src="http://cdn.v2ex.com/static/img/silver.png" alt="S" align="absmiddle" border="0" style="padding-bottom: 2px;"> 18 
+                                            <img src="http://cdn.v2ex.com/static/img/bronze.png" alt="B" align="absmiddle" border="0"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                </div>
                 <div class="sep20"></div>
             </div>
         </div>
