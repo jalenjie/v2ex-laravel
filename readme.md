@@ -21,3 +21,6 @@ update 2014/3/9 18:40<br/>
 之前要写Route::get  Route::post 写一大串 <br/>
 现在只要用Route::controller就搞定了 <br/>
 update 2014/3/11/ 0:05
+
+模板修改 bootstrap 
+update 2014/3/11 1:00
