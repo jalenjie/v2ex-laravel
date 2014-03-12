@@ -12,15 +12,16 @@ class DatabaseSeeder extends Seeder {
 		Eloquent::unguard();
 
 		 $this->call('UserTableSeeder');
+		 $this->call('AdminTableSeeder');
 	}
 
 }
 
-class UserTableSeeder extends Seeder {
+/*class UserTableSeeder extends Seeder {
 
     public function run()
     {
-        DB::table('users')->delete();
+        DB::table('users')->truncate();
 
         User::create(array('username' => 'test',
         					'email' => 'test@test.com',
@@ -30,3 +31,15 @@ class UserTableSeeder extends Seeder {
     }
 
 }
+
+class AdminTableSeeder extends Seeder{
+	public function run()
+	{
+		DB::table('admin')->truncate();
+		Admin::create(
+				array('admin_name' => "admin",
+					'password' => Hash::make('admin')
+					)
+			);
+	}
+}*/

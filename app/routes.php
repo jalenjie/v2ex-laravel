@@ -22,4 +22,15 @@ Route::post('signup',array('uses' => 'HomeController@doRegister'));
 //登出
 Route::get('signout', array('uses' => 'HomeController@doLogout'));*/
 
-Route::controller('auth','AuthController');
+//用户登陆注册验证
+Route::controller('users','AuthController');
+
+//首页
+Route::get('/',function(){
+
+	echo "hello";
+});
+
+
+//后台登陆
+Route::controller('admin','Admin\AuthController');

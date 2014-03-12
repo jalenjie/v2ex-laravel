@@ -1,0 +1,53 @@
+body{padding-top:60px;}
+a:link, a:visited, a:active {
+	color: #778087;
+	text-decoration: none;
+}
+#top{
+	background-image: url("../img/top_light.png");
+
+}
+#Wrapper{
+	background-color: #e2e2e2;
+}
+.form-signin {
+max-width: 360px;
+padding: 15px;
+margin: 0 auto;
+}
+.box{background-color: #FFF;
+padding: 10px;
+font-size: 12px;
+line-height: 120%;
+text-align: left;
+border-bottom: 1px solid #e2e2e2;
+}
+.header-crumb{border-bottom: 1px solid #e2e2e2;}
+.input-group{margin-bottom: 10px;}
+.fade-color{color: #ccc;}
+.cell {
+padding: 10px;
+font-size: 12px;
+line-height: 120%;
+text-align: left;
+border-bottom: 1px solid #e2e2e2;
+}
+.inner {
+padding: 10px;
+}
+
+.sep20 {
+    height: 20px;
+}
+
+.sep10 {
+    height: 10px;
+}
+
+.sep5 {
+    height: 5px;
+}
+
+.sep3 {
+    height: 3px;
+}
