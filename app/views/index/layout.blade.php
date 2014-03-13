@@ -28,18 +28,18 @@
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">首页</a></li>
-                        @if(Auth::check())
-                            <li>{{ HTML::link("/member/".Auth::user()->username,Auth::user()->username) }}</li>
+                        @if(Auth::user()->check())
+                            <li>{{ HTML::link("/member/".Auth::user()->user()->username,Auth::user()->user()->username) }}</li>
                             <li><a href="#">工作空间</a></li>
                             <li><a href="#">记事本</a></li>
                             <li><a href="#">时间轴</a></li>
                             <li><a href="#">活动</a></li>
                             <li><a href="#">附近</a></li>
                             <li><a href="#">设置</a></li>
-                            <li>{{ HTML::link("/auth/logout","登出")}}</li>
+                            <li>{{ HTML::link("/logout","登出")}}</li>
                         @else
-                            <li>{{ HTML::link("/auth/reg","注册")}}</li>
-                            <li>{{ HTML::link("/auth/login","登入")}}</li>
+                            <li>{{ HTML::link("/register","注册")}}</li>
+                            <li>{{ HTML::link("/login","登入")}}</li>
                         @endif
                         
                     </ul>
@@ -58,7 +58,7 @@
                     <div class="col-md-1">
                     </div>
                     <div class="col-md-3 box">
-                        @if ( !Auth::check() )
+                        @if ( !Auth::user()->check() )
                             <div class="box">
                                 <div class="cell">
                                     <strong>V2EX = way to explore</strong>
@@ -67,10 +67,10 @@
                                 </div>
                                 <div class="inner">
                                     <div class="sep5"></div>
-                                    <div align="center"><a href="/auth/reg" class="btn btn-primary">现在注册</a>
+                                    <div align="center"><a href="/register" class="btn btn-primary">现在注册</a>
                                     <div class="span5"></div>
                                     <div class="sep10"></div>
-                                    已注册用户请 &nbsp;<a href="/auth/login">登入</a></div>
+                                    已注册用户请 &nbsp;<a href="/login">登入</a></div>
                                 </div>
                             </div>
                         @else

@@ -23,16 +23,19 @@ Route::post('signup',array('uses' => 'HomeController@doRegister'));
 Route::get('signout', array('uses' => 'HomeController@doLogout'));*/
 
 //用户登陆注册验证
-Route::controller('users','AuthController');
+//Route::controller('users','AuthController');
+/*前台登陆 我就用get post*/
+Route::get('/','Index\HomeController@index');
+Route::get('login','Index\UserController@showLogin');
+Route::get('register','Index\UserController@showReg');
+Route::get('logout', 'Index\UserController@getLogout');
+Route::post('login','Index\UserController@postLogin');
+Route::post('register','Index\UserController@getLogout');
 
-//首页
-Route::get('/',function(){
-
-	echo "hello";
-});
 
 
-//后台登陆
+
+/*后台登陆*/
 Route::controller('admin','Admin\AuthController');
 
 Route::group(array('prefix' => 'admin','before' => 'auth'),function(){

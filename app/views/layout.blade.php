@@ -36,10 +36,10 @@
                             <li><a href="#">活动</a></li>
                             <li><a href="#">附近</a></li>
                             <li><a href="#">设置</a></li>
-                            <li>{{ HTML::link("/auth/logout","登出")}}</li>
+                            <li>{{ HTML::link("/logout","登出")}}</li>
                         @else
-                            <li>{{ HTML::link("/auth/reg","注册")}}</li>
-                            <li>{{ HTML::link("/auth/login","登入")}}</li>
+                            <li>{{ HTML::link("/register","注册")}}</li>
+                            <li>{{ HTML::link("/login","登入")}}</li>
                         @endif
                         
                     </ul>
@@ -67,10 +67,10 @@
                                 </div>
                                 <div class="inner">
                                     <div class="sep5"></div>
-                                    <div align="center"><a href="/auth/reg" class="btn btn-primary">现在注册</a>
+                                    <div align="center"><a href="/register" class="btn btn-primary">现在注册</a>
                                     <div class="span5"></div>
                                     <div class="sep10"></div>
-                                    已注册用户请 &nbsp;<a href="/auth/login">登入</a></div>
+                                    已注册用户请 &nbsp;<a href="/login">登入</a></div>
                                 </div>
                             </div>
                         @else
