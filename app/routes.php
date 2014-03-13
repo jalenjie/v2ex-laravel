@@ -30,7 +30,7 @@ Route::get('login','Index\UserController@showLogin');
 Route::get('register','Index\UserController@showReg');
 Route::get('logout', 'Index\UserController@getLogout');
 Route::post('login','Index\UserController@postLogin');
-Route::post('register','Index\UserController@getLogout');
+Route::post('register','Index\UserController@postReg');
 
 
 

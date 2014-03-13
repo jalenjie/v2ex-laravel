@@ -6,6 +6,8 @@ use \Redirect;
 use \Auth;
 use \DB;
 use \URL;
+use \Validator;
+use \Hash;
 	class UserController extends BaseController
 	{
 		
@@ -76,7 +78,7 @@ use \URL;
 				    $userdata
 				);
 
-				return Redirect::to("member/{$userdata['username']}");
+				return Redirect::to("/");
 
 				
 
