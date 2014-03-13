@@ -8,11 +8,13 @@ use \DB;
 use \Hash;
 use \Response;
 use \URL;
+use \Session;
+
 	class AuthController extends BaseController{
 
 		public function getLogin(){
 
-			if(Auth::check()){
+			if(Auth::admin()->check()){
 				return Redirect::to("admin");
 			}
 			return View::make("admin.login");
@@ -22,36 +24,30 @@ use \URL;
 
 			$admin_name = Input::get('username') ;
 			$password   = Input::get('password') ;
+			$attempt_arr = array(
+							'admin_name' => $admin_name,
+							'password'   => $password
+				);
+			if(Auth::admin()->attempt($attempt_arr)){
 
-			$count = DB::table('admin')
-						->where('admin_name',$admin_name)
-						->count();
-			if ($count > 0) {
-
-				$admin_user = DB::table('admin')
-							->select('admin_name','password')
-							->where('admin_name',$admin_name)
-							->first();
-				//散列验证
-				if ( $admin_name == $admin_user->admin_name &&  Hash::check($password, $admin_user->password ))
-				{
-				    // 密码匹配...
-				    return Response::json(
-				    				array( 
-				    					'login_status' => 'success',
-                                  		'redirect_url' => URL::previous()
-                                  )
-				    	);
-				}else{
-			        return Response::json(array(
-			                              'login_status' => 'invalid',
-			                             ));
-				}
+			    return Response::json(array( 
+					    					'login_status' => 'success',
+		                              		'redirect_url' => URL::previous()
+                              				)
+			    	);
 			}else{
-			        return Response::json(array(
-			                              'login_status' => 'invalid',
-			                             ));
+
+		        return Response::json(array(
+		                              		'login_status' => 'invalid',
+		                             		)
+		        					);
 			}
+		}
+
+
+		public function getLogout(){
+			Auth::admin()->logout();
+			return Redirect::to('admin/login');
 		}
 
 

@@ -12,6 +12,8 @@ class Admin extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $table = 'admin';
 
+	protected $primaryKey = 'admin_id';
+
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *

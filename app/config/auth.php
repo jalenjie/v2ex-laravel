@@ -15,7 +15,7 @@ return array(
 	|
 	*/
 
-	'driver' => 'eloquent',
+	/*'driver' => 'eloquent',*/
 
 	/*
 	|--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'model' => 'User',
+	/*'model' => 'User',*/
 
 	/*
 	|--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return array(
 	|
 	*/
 
-	'table' => 'users',
+	/*'table' => 'users',*/
 
 	/*
 	|--------------------------------------------------------------------------
@@ -57,6 +57,16 @@ return array(
 	| they have less time to be guessed. You may change this as needed.
 	|
 	*/
+	'multi' => array(
+        'admin' => array(
+            'driver' => 'eloquent',
+            'model' => 'admin'
+        ),
+        'user' => array(
+            'driver' => 'database',
+            'table' => 'users'
+        )
+    ),
 
 	'reminder' => array(
 

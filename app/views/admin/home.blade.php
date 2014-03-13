@@ -1,4 +1,4 @@
-@extends('backend.layout')
+@extends('admin.layout')
 @section('page_title')
 <h1>控制面板</h1>
 @endsection
