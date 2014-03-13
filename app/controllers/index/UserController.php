@@ -77,6 +77,10 @@ use \Hash;
 				DB::table('users')->insertGetId(
 				    $userdata
 				);
+				if (Auth::user()->attempt(array('username' => Input::get('username'), 'password' => Input::get('password'))))
+				{
+				    return Redirect::intended('/');
+				}
 
 				return Redirect::to("/");
 
