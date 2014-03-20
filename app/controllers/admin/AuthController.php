@@ -1,43 +1,33 @@
 <?php namespace Admin;
-use \BaseController;
-use \View;
-use \Redirect;
-use \Auth;
-use \Input;
-use \DB;
-use \Hash;
-use \Response;
-use \URL;
-use \Session;
 
-	class AuthController extends BaseController{
+	class AuthController extends \BaseController{
 
 		public function getLogin(){
 
-			if(Auth::admin()->check()){
-				return Redirect::to("admin");
+			if(\Auth::admin()->check()){
+				return \Redirect::to("admin");
 			}
-			return View::make("admin.login");
+			return \View::make("admin.login");
 		}
 
 		public function postLogin(){
 
-			$admin_name = Input::get('username') ;
-			$password   = Input::get('password') ;
+			$admin_name = \Input::get('username') ;
+			$password   = \Input::get('password') ;
 			$attempt_arr = array(
 							'admin_name' => $admin_name,
 							'password'   => $password
 				);
-			if(Auth::admin()->attempt($attempt_arr)){
+			if(\Auth::admin()->attempt($attempt_arr)){
 
-			    return Response::json(array( 
+			    return \Response::json(array( 
 					    					'login_status' => 'success',
-		                              		'redirect_url' => URL::previous()
+		                              		'redirect_url' => \URL::previous()
                               				)
 			    	);
 			}else{
 
-		        return Response::json(array(
+		        return \Response::json(array(
 		                              		'login_status' => 'invalid',
 		                             		)
 		        					);
@@ -46,8 +36,8 @@ use \Session;
 
 
 		public function getLogout(){
-			Auth::admin()->logout();
-			return Redirect::to('admin/login');
+			\Auth::admin()->logout();
+			return \Redirect::to('admin/login');
 		}
 
 

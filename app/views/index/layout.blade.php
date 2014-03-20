@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html  lang="zh-CN">
     <head>
         <title>{{$title}}</title>
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap -->
         <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
