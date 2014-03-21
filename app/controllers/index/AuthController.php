@@ -27,6 +27,8 @@
 	            return Redirect::to('index');
 	        }
 
+	        Input::flash();
+
 	        return Redirect::to('auth/login')
 	        		->with('login_error','用户名或者密码错误');
 		}

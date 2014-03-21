@@ -13,15 +13,17 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	protected $table = 'users';
 
 	protected static $rules = array(
-				'username' => 'required|alpha_num|unique:users,username',
+				'username' => 'required|alpha_num|max:16|unique:users,username',
 				'email'    => 'required|email|unique:users,email', 
 				'password' => 'required|alpha_num|min:3' 
 			);
 	protected static $messages = array(
-			    'required' => ' :attribute 不能为空',
-			    'alpha_num' => ' :attribute 只能是字母和数字的组合',
-			    'email' => ' :attribute 格式不正确',
-			    'password' => ' :attribute 至少3个字符',
+				'required'  => ' :attribute 不能为空',
+				'max'       => ' :attribute 最大字符不能超过16',
+				'unique'    => ' :attribute 已经存在',
+				'alpha_num' => ' :attribute 只能是字母和数字的组合',
+				'email'     => ' :attribute 格式不正确',
+				'min'       => ' :attribute 至少3个字符',
 			);
 
 	protected static $errors ;
@@ -68,7 +70,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 			
 			$validator = \Validator::make($inputAll, self::$rules,self::$messages);
+
 			if($validator->fails()){
+				
+				Input::flash();
 
 				self::setErrors($validator->messages());
 
@@ -91,7 +96,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return self::$errors;
 	}
 
-	//注册
 	public static function postRegister($userdata)
 	{
 

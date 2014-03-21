@@ -16,7 +16,7 @@
             <div class="form-group">
                 <label for="inputUsername3" class="col-sm-3 control-label">用户名</label>
                 <div class="col-sm-9">
-                    {{ Form::text('username','',array('class'=>'form-control','placeholder'=>'Username','id'=>'inputUsername3'));}}
+                    {{ Form::text('username',Input::old('username'),array('class'=>'form-control','placeholder'=>'Username','id'=>'inputUsername3'));}}
                 </div>
             </div>
             <div class="form-group">

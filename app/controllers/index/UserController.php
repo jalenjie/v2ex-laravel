@@ -29,6 +29,8 @@
 	            return \Redirect::to('/');
 	        }
 
+	        \Input::flash();
+	        
 	        return \Redirect::to('login')
 	        		->with('login_error','用户名或者密码错误');
 		}

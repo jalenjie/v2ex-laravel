@@ -8,8 +8,9 @@
     </ol>
     @if ($errors->first('email') or $errors->first('username') or $errors->first('password'))
         <div class="alert alert-danger">
-            {{  $errors->first('email');}} <br/>
-            {{  $errors->first('username');}} <br/>
+            <div>{{  $errors->first('username');}} </div>
+            <div>{{  $errors->first('email');}} </div>
+            <div>{{  $errors->first('password');}} </div>
         </div>
     @endif
 
@@ -22,7 +23,7 @@
         <div class="form-group">
             <label for="inputUsername3" class="col-sm-3 control-label">用户名</label>
             <div class="col-sm-9">
-                {{ Form::text('username','',array('class'=>'form-control','placeholder'=>'Username','id'=>'inputUsername3'));}}
+                {{ Form::text('username',Input::old('username'),array('class'=>'form-control','placeholder'=>'Username','id'=>'inputUsername3'));}}
             </div>
         </div>
 
@@ -42,7 +43,7 @@
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-3 control-label">电子邮件</label>
             <div class="col-sm-9">
-                {{ Form::text('email','',array('class'=>'form-control','placeholder'=>'ex@ex.com','id'=>'inputEmail3'));}}
+                {{ Form::text('email',Input::old('email'),array('class'=>'form-control','placeholder'=>'ex@ex.com','id'=>'inputEmail3'));}}
             </div>
         </div>
         <div class="form-group">
