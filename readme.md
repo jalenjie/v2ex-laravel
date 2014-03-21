@@ -31,3 +31,6 @@ update 2014/3/13 1:17<br/>
 
 重构前台和后台 <br/>
 update 2014/3/14 0:52 <br/>
+
+Model的重构 ps:貌似不用每次写改了什么，git commit可以有说明!<br/>
+UPDATE 2014/3/21
