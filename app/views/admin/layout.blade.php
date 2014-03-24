@@ -162,6 +162,26 @@
             </li>
           </ul>
         </li>
+        <li>
+          <a href="{{ url('/admin/thread/all') }}">
+            <i class="entypo-user"></i>
+            <span>板块</span>
+          </a>
+          <ul>
+            <li>
+              <a href="{{ url('/admin/thread/all') }}">
+                <i class="entypo-list"></i>
+                <span>所有板块</span>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/user/new') }}">
+                <i class="entypo-plus"></i>
+                <span>添加用户</span>
+              </a>
+            </li>
+          </ul>
+        </li>
 
         <li>
           <a href="{{ url('/admin/system/basic') }}">

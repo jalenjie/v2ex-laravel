@@ -38,8 +38,9 @@ Route::post('register','Index\UserController@postReg');
 /*后台登陆*/
 Route::controller('admin','Admin\AuthController');
 
-Route::group(array('prefix' => 'admin','before' => 'auth'),function(){
+Route::group(array('prefix' => '/admin','before' => 'auth'),function(){
 
 	Route::get('/','Admin\HomeController@index');
+	Route::controller('thread','Admin\ThreadController');
 
 });
