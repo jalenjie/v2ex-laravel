@@ -3,9 +3,9 @@ class AdminTableSeeder extends Seeder {
 
     public function run()
     {
-        DB::table('admin')->truncate();
+        Admin::truncate();
 
-        admin::create(array(
+        Admin::create(array(
         					'admin_name' => 'admin',
         					'password' => Hash::make('admin')
 
