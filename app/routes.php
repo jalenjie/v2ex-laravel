@@ -36,9 +36,13 @@ Route::post('register','Index\UserController@postReg');
 
 
 /*后台登陆*/
-Route::controller('admin','Admin\AuthController');
+Route::controller('admin/auth','Admin\AuthController');
 
-Route::group(array('prefix' => '/admin','before' => 'auth'),function(){
+Route::filter('auth.admin', function() {
+    if (!Auth::admin()->check()) return Redirect::to('admin/auth/login');
+});
+
+Route::group(array('prefix' => '/admin','before' => 'auth.admin'),function(){
 
 	Route::get('/','Admin\HomeController@index');
 	Route::controller('thread','Admin\ThreadController');

@@ -54,7 +54,7 @@ var neonLogin = neonLogin || {};
 					neonLogin.setPercentage(40 + random_pct);
 					// Send data to the server
 					$.ajax({
-						url: baseurl + '/admin/login',
+						url: baseurl + '/admin/auth/login',
 						method: 'POST',
 						dataType: 'json',
 						data: {
