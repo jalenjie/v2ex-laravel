@@ -60,7 +60,7 @@ return array(
 	'multi' => array(
         'admin' => array(
             'driver' => 'eloquent',
-            'model' => 'admin'
+            'model' => 'Admin'
         ),
         'user' => array(
             'driver' => 'database',
